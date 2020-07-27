@@ -48,6 +48,7 @@ public class DBCPInitListener implements ServletContextListener {
 		try {
 			prop.load(new StringReader(poolConfig));
 		} catch (IOException e) {
+			e.printStackTrace();
 			throw new RuntimeException("config load fail", e);
 		}
 		loadJDBCDriver(prop);
@@ -82,10 +83,11 @@ public class DBCPInitListener implements ServletContextListener {
 			poolableConnFactory.setPool(connectionPool);
 
 			Class.forName("org.apache.commons.dbcp2.PoolingDriver");
-			PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbc:");
+			PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
 			String poolName = prop.getProperty("poolName");
 			driver.registerPool(poolName, connectionPool);
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
@@ -100,11 +102,12 @@ public class DBCPInitListener implements ServletContextListener {
 	}
 
 	private void loadJDBCDriver(Properties prop) {
-		String driverClass = prop.getProperty("jdbcdriver");
+		String driverClass = prop.getProperty("jdbcDriver");
 
 		try {
 			Class.forName(driverClass);
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 			throw new RuntimeException("fail to load JDBC Driver", e);
 		}
 	}
