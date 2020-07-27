@@ -97,11 +97,9 @@ public class ControllerUsingURI extends HttpServlet {
 		= requestUri.substring(startIndex + contextPath.length());
 		
 		CommandHandler com = map.get(command);
-		String res = com.process(request, response);
+		String view = com.process(request, response);
 		
-		request.setAttribute("result", res);
-		
-		request.getRequestDispatcher("/chap18/simpleView.jsp")
+		request.getRequestDispatcher(view)
 			.forward(request, response);
 	}
 
