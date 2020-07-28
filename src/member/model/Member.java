@@ -45,4 +45,14 @@ public class Member {
 	}
 	
 	
+	public void changePassword(String newPwd) {
+		this.password = newPwd;
+	}
+	
 }
+
+
+
+
+
+
