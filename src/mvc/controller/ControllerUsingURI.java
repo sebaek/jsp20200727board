@@ -112,7 +112,6 @@ public class ControllerUsingURI extends HttpServlet {
 			view = com.process(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ServletException(e);
 		}
 
 		if (view != null) {

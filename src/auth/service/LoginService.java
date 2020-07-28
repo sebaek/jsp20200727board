@@ -11,8 +11,10 @@ public class LoginService {
 	private MemberDao memberDao = new MemberDao();
 
 	public User login(String id, String password) {
+		// try-with-resources
 		try (Connection conn = ConnectionProvider
 				.getConnection()) {
+			
 			Member member = memberDao.selectById(conn, id);
 			
 			if (member == null) {
