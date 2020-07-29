@@ -14,6 +14,9 @@
   <listener>
   	<listener-class>jdbc.DBCPInitListener</listener-class>
   </listener>
+  <listener>
+  	<listener-class>util.AddContextPathListener</listener-class>
+  </listener>
   
   <context-param>
   	<param-name>poolConfig</param-name>

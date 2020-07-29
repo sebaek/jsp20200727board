@@ -20,7 +20,7 @@
 
 <br />
 
-${ctxPath = pageContext.request.contextPath ; '' }
+<%-- ${ctxPath = pageContext.request.contextPath ; '' } --%>
 <a href="${ctxPath }/article/list.do">[게시글 목록보기]</a>
 <a href="${ctxPath }/article/read.do?no=${newArticleNo }">[게시글 내용보기]</a>
 </body>
