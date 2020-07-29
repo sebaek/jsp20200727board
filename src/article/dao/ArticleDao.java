@@ -23,7 +23,7 @@ public class ArticleDao {
 			pstmt = conn.prepareStatement("INSERT INTO "
 					+ " article "
 					+ " (writer_id, writer_name, title, "
-					+ "  regdate, moddate, red_cnt) "
+					+ "  regdate, moddate, read_cnt) "
 					+ " VALUES (?, ?, ?, ?, ?, 0) ");
 			pstmt.setString(1, article.getWriter().getId());
 			pstmt.setString(2, article.getWriter().getName());
