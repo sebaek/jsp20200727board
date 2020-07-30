@@ -11,7 +11,7 @@ CREATE TABLE board.member (
 
 SELECT * FROM member;
 
-CREATE TABLE article (
+CREATE TABLE board.article (
 	article_no int auto_increment primary key,
     writer_id varchar(50) not null,
     writer_name varchar(50) not null,
@@ -21,12 +21,16 @@ CREATE TABLE article (
     read_cnt int
 );
 
-CREATE TABLE article_content (
+CREATE TABLE board.article_content (
 	article_no int primary key,
     content text
 );
 
+SELECT * FROM article;
+INSERT INTO article VALUES (null, 'seoul3', 'john', 'title1', now(), now(), 0);
+SELECT last_insert_id();
 
+SELECT * FROM article_content;
 
 
 
