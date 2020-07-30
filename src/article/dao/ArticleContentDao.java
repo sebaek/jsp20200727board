@@ -29,11 +29,22 @@ public class ArticleContentDao {
 						rs.getString("content"));
 
 			}
-			
+
 			return content;
-			
+
 		} finally {
 			JdbcUtil.close(rs, pstmt);
+		}
+	}
+
+	public int update(Connection conn, int no, String content)
+			throws SQLException {
+		try (PreparedStatement pstmt = conn.prepareStatement(
+				"UPDATE article_content SET content=?"
+						+ "WHERE article_no=?")) {
+			pstmt.setString(1, content);
+			pstmt.setInt(2, no);
+			return pstmt.executeUpdate();
 		}
 	}
 

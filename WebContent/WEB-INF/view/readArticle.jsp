@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table board="1" width="100%">
+<table border="1" width="100%">
 <tr>
 	<td>번호</td>
 	<td>${articleData.article.number }</td>

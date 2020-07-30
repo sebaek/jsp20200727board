@@ -151,4 +151,15 @@ public class ArticleDao {
 	private Timestamp toTimestamp(Date date) {
 		return new Timestamp(date.getTime());
 	}
+
+	public int update(Connection conn, int no, String title)
+			throws SQLException {
+		try (PreparedStatement pstmt = conn.prepareStatement(
+				"UPDATE article SET title=?, moddate=now()"
+						+ " WHERE article_no=?")) {
+			pstmt.setString(1, title);
+			pstmt.setInt(2, no);
+			return pstmt.executeUpdate();
+		}
+	}
 }
