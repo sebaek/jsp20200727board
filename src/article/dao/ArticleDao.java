@@ -15,6 +15,16 @@ import article.model.Writer;
 import jdbc.JdbcUtil;
 
 public class ArticleDao {
+	
+	public int delete(Connection conn, int no)
+			throws SQLException {
+		try (PreparedStatement pstmt = conn
+				.prepareStatement("DELETE FROM article "
+						+ " WHERE article_no=?")) {
+			pstmt.setInt(1, no);
+			return pstmt.executeUpdate();
+		}
+	}
 
 	public Article selectById(Connection conn, int no)
 			throws SQLException {
