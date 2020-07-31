@@ -32,7 +32,13 @@
 </tr>
 <tr>
 	<td>내용</td>
-	<td style="white-space: pre-wrap;"><c:out value="${articleData.content }" /></td>
+	<td style="white-space: pre-wrap;">
+	<c:if test="${ }">
+		<img src="${ }" alt="" />
+	</c:if>
+	
+	<c:out value="${articleData.content }" />
+	</td>
 	<%-- 
 	<td><u:pre value="${articleData.content }"/></td>
 	 --%>
