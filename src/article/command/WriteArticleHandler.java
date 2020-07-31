@@ -60,7 +60,7 @@ public class WriteArticleHandler implements CommandHandler {
 				|| fileName.isEmpty()
 				|| filePart.getSize() == 0)) {
 
-			writeFile.write(filePart);
+			writeFile.write(filePart, newArticleNo);
 		}
 
 		req.setAttribute("newArticleNo", newArticleNo);
