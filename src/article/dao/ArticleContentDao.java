@@ -65,12 +65,13 @@ public class ArticleContentDao {
 		try {
 			pstmt = conn.prepareStatement("INSERT INTO "
 					+ " article_content "
-					+ " (article_no, content) "
+					+ " (article_no, content, file_name) "
 					+ " VALUES "
-					+ " (?, ?) ");
+					+ " (?, ?, ?) ");
 
 			pstmt.setLong(1, content.getNumber());
 			pstmt.setString(2, content.getContent());
+			pstmt.setString(3, content.getFileName());
 			int insertedCount = pstmt.executeUpdate();
 
 			if (insertedCount > 0) {
