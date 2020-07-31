@@ -32,7 +32,7 @@ public class WriteArticleService {
 
 			ArticleContent content = new ArticleContent(
 					savedArticle.getNumber(),
-					req.getContent());
+					req.getContent(), req.getFileName());
 
 			ArticleContent savedContent = contentDao.insert(conn,
 					content);

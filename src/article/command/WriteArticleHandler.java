@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import article.model.Writer;
 import article.service.WriteArticleService;
@@ -30,13 +31,18 @@ public class WriteArticleHandler implements CommandHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req,
-			HttpServletResponse res) {
+			HttpServletResponse res) throws Exception {
+		
+		Part filePart = req.getPart("file1");
+		String fileName = filePart.getSubmittedFileName();
+		
+		fileName = fileName == null ? "" : fileName;
 		
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 		
 		User user = (User) req.getSession(false).getAttribute("authUser");
-		WriteRequest writeReq = createWriteRequest(user, req);
+		WriteRequest writeReq = createWriteRequest(user, req, fileName);
 		writeReq.validate(errors);
 		
 		if (!errors.isEmpty()) {
@@ -49,14 +55,21 @@ public class WriteArticleHandler implements CommandHandler {
 		return "/WEB-INF/view/newArticleSuccess.jsp";
 		
 	}
-
+	
 	private WriteRequest createWriteRequest(User user,
 			HttpServletRequest req) {
+
+		return createWriteRequest(user, req, "");
+	}
+
+	private WriteRequest createWriteRequest(User user,
+			HttpServletRequest req, String fileName) {
 
 		return new WriteRequest(
 				new Writer(user.getId(), user.getName()),
 				req.getParameter("title"),
-				req.getParameter("content"));
+				req.getParameter("content"),
+				fileName);
 	}
 
 	private String processForm(HttpServletRequest req,

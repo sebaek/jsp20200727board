@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="write.do" method="post">
+<form action="write.do" method="post" enctype="multipart/form-data">
 <p>
 제목: <br />
 <input type="text" name="title" value="${param.title }" />
@@ -26,6 +26,11 @@
 내용: <br />
 <textarea name="content" cols="30" rows="5">${param.content }</textarea>
 </p>
+<p>
+파일: <br />
+<input type="file" name="file1" accept="image/*" />
+</p>
+
 <input type="submit" value="새 글 등록" />
 </form>
 </body>

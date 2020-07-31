@@ -42,4 +42,3 @@ SELECT * FROM article_content;
 
 
 
-
