@@ -30,7 +30,7 @@
 	<a href="login.do">[로그인하기]</a>
 </u:notLogin>
 
-
+<div><img src="/images/다운로드.jpg" alt="" /></div>
 
 </body>
 </html>
