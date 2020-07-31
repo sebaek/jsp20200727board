@@ -106,7 +106,8 @@ public class DeleteArticleHandler implements CommandHandler {
 			e.printStackTrace();
 			res.sendError(HttpServletResponse.SC_FORBIDDEN);
 		} catch (InvalidPasswordException e) {
-			return "/WEB-INF
+			errors.put("invalidPassword", true);
+			return FORM_VIEW;
 		}
 
 		return null;

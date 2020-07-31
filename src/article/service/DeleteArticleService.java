@@ -26,7 +26,8 @@ public class DeleteArticleService {
 
 			Article article = articleDao.selectById(conn,
 					delReq.getArticleNumber());
-			Member member = memberDao.selectById(conn, delReq.getUserId());
+			Member member = memberDao.selectById(conn,
+					delReq.getUserId());
 
 			if (article == null) {
 				throw new ArticleNotFoundException();
@@ -35,18 +36,23 @@ public class DeleteArticleService {
 			if (!canModify(delReq.getUserId(), article)) {
 				throw new PermissionDeniedException();
 			}
-			
-			if (!delReq.getPassword().equals(member.getPassword())) {
+
+			if (!delReq.getPassword()
+					.equals(member.getPassword())) {
 				throw new InvalidPasswordException();
 			}
 
 			articleDao.delete(conn, delReq.getArticleNumber());
 			contentDao.delete(conn, delReq.getArticleNumber());
 			conn.commit();
-		} catch (SQLException | PermissionDeniedException | InvalidPasswordException e) {
+		} catch (SQLException | PermissionDeniedException e) {
 			JdbcUtil.rollback(conn);
 			e.printStackTrace();
 			throw new RuntimeException(e);
+		} catch (InvalidPasswordException e) {
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+			throw e;
 		} finally {
 			JdbcUtil.close(conn);
 		}

@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-게시글을 수정했습니다.
+게시글을 삭제했습니다.
 
 <br />
 
