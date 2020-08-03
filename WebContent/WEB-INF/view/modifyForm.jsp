@@ -17,22 +17,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="modify.do?no=${modReq.articleNumber }" method="post">
-<p>
-번호 : <br />
-${modReq.articleNumber }
 
-</p>
-<p>
-제목 : <br />
-<input type="text" name="title" value="${modReq.title }" />
-<c:if test="${errors.title }">제목을 입력하세요</c:if>
-</p>
-<p>
-내용 : <br />
-<textarea name="content" cols="30" rows="5">${modReq.content }</textarea>
-</p>
-<input type="submit" value="글 수정" />
-</form>
+<u:navbar write="active" />
+
+	<div class="container">
+	<form action="modify.do?no=${modReq.articleNumber }" method="post">
+
+			<div class="form-group">
+				<label for="input1">제목</label> <input type="text"
+					class="form-control" name="title" id="input1"
+					placeholder="제목을 입력하세요." value="${modReq.title }" required>
+				<small class="form-text text-muted"> <c:if
+						test="${errors.title }">제목을 입력하세요.</c:if>
+				</small>
+			</div>
+			<div class="form-group">
+				<label for="textarea1">내용</label>
+				<textarea class="form-control" name="content" id="textarea1"
+					rows="3">${modReq.content }</textarea>
+			</div>
+
+			<input class="btn btn-secondary" type="submit" value="수정" />
+		</form>
+	</div>
+
 </body>
 </html>

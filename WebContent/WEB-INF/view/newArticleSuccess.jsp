@@ -17,13 +17,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-게시글을 등록했습니다.
 
-<br />
+<u:navbar write="active" />
 
-<%-- ${ctxPath = pageContext.request.contextPath ; '' } --%>
-<a href="${ctxPath }/article/list.do">[게시글 목록보기]</a>
-<a href="${ctxPath }/article/read.do?no=${newArticleNo }">[게시글 내용보기]</a>
+<div class="jumbotron">
+  <h1 class="display-4">게시글을 등록했습니다.</h1>
+</div>
+
+
+
+
 </body>
 </html>
 

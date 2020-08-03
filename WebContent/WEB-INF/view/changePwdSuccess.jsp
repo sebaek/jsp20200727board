@@ -17,6 +17,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-암호를 변경했습니다.
+
+	<u:navbar changePwd="active" />
+
+	<div class="jumbotron">
+		<h1 class="display-4">암호를 변경했습니다.</h1>
+	</div>
 </body>
 </html>

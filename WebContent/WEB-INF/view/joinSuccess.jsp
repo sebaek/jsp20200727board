@@ -17,7 +17,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-${param.name }님, 회원 가입에 성공했습니다.
+
+<u:navbar join="active" />
+
+<div class="jumbotron">
+  <h1 class="display-4">${param.name }님, 회원 가입에 성공했습니다.</h1>
+</div>
 </body>
 </html>
 

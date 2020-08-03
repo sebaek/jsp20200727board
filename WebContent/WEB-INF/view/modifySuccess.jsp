@@ -17,12 +17,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-게시글을 수정했습니다.
 
-<br />
+<u:navbar write="active" />
 
-<a href="${ctxPath }/article/list.do">[게시글 목록보기]</a>
-<a href="${ctxPath }/article/read.do?no=${modReq.articleNumber }">[게시글 내용보기]</a>
+<div class="jumbotron">
+  <h1 class="display-4">게시글을 수정했습니다.</h1>
+</div>
+
 </body>
 </html>
 
