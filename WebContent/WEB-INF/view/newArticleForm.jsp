@@ -17,23 +17,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="write.do" method="post" enctype="multipart/form-data">
-<p>
-제목: <br />
-<input type="text" name="title" value="${param.title }" />
-<c:if test="${errors.title }">제목을 입력하세요</c:if>
-</p>
-<p>
-내용: <br />
-<textarea name="content" cols="30" rows="5">${param.content }</textarea>
-</p>
-<p>
-파일: <br />
-<input type="file" name="file1" accept="image/*" />
-</p>
+<u:navbar write="active" />
 
-<input type="submit" value="새 글 등록" />
+<div class="container">
+
+<form action="write.do" method="post" enctype="multipart/form-data">
+
+<div class="form-group">
+				<label for="input1">제목</label> <input type="text"
+					class="form-control" name="title" id="input1" placeholder="제목을 입력하세요." value="${param.title }"
+					required> <small class="form-text text-muted"> <c:if
+						test="${errors.title }">제목을 입력하세요.</c:if> 
+				</small>
+			</div>
+  <div class="form-group">
+    <label for="textarea1">내용</label>
+    <textarea class="form-control" name="content" id="textarea1" rows="3">${param.content }</textarea>
+  </div>
+  <div class="form-group">
+    <label for="file1">파일</label>
+    <input type="file" name="file1" accept="image/*" class="form-control-file" id="file1">
+  </div>
+
+<input class="btn btn-primary" type="submit" value="등록" />
 </form>
+
+</div>
 </body>
 </html>
 
