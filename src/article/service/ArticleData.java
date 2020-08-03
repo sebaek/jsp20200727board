@@ -18,4 +18,13 @@ public class ArticleData {
 	public String getContent() {
 		return content.getContent();
 	}
+	public String getFileName() {
+		return content.getFileName();
+	}
 }
+
+
+
+
+
+
