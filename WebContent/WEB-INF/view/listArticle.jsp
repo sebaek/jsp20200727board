@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,48 +21,61 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="1">
-		<tr>
-			<td colspan="4"><a href="write.do">[게시글 쓰기]</a></td>
-		</tr>
-		<tr>
-			<td>번호</td>
-			<td>제목</td>
-			<td>작성자</td>
-			<td>조회수</td>
-		</tr>
-		<c:if test="${articlePage.hasNoArticles() }">
-			<tr>
-				<td colspan="4">게시글이 없습니다.</td>
-			</tr>
-		</c:if>
-		<c:forEach var="article" items="${articlePage.content }">
-			<tr>
-				<td>${article.number }</td>
-				<td><a
-					href="read.do?no=${article.number }&pageNo=${articlePage.currentPage}">
-						<c:out value="${article.title }"></c:out>
-				</a></td>
-				<td>${article.writer.name }</td>
-				<td>${article.readCount }</td>
-			</tr>
-		</c:forEach>
-		<c:if test="${articlePage.hasArticles() }">
-			<tr>
-				<td colspan="4">
-					<c:if test="${articlePage.startPage > 5 }">
-						<a href="list.do?pageNo=${articlPage.startPage-5 }">[이전]</a>
-					</c:if>
-					<c:forEach var="pNo" begin="${articlePage.startPage }" end="${articlePage.endPage }">
-						<a href="list.do?pageNo=${pNo }">[${pNo }]</a>
-					</c:forEach>
-					<c:if test="${articlePage.endPage < articlePae.totalPages }">
-						<a href="list.do?pageNo=${articlePage.startPage + 5 }">[다음]</a>
-					</c:if>
-				</td>
-			</tr>
-		</c:if>
-	</table>
+
+	<u:navbar list="active" />
+
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th style="width: 10%;">번호</th>
+					<th style="width: 70%;">제목</th>
+					<th style="width: 10%;">작성자</th>
+					<th style="width: 10%;">조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test="${articlePage.hasNoArticles() }">
+					<tr>
+						<td colspan="4">게시글이 없습니다.</td>
+					</tr>
+				</c:if>
+				<c:forEach var="article" items="${articlePage.content }">
+					<tr>
+						<td>${article.number }</td>
+						<td><a
+							href="read.do?no=${article.number }&pageNo=${articlePage.currentPage}">
+								<c:out value="${article.title }"></c:out>
+						</a></td>
+						<td>${article.writer.name }</td>
+						<td>${article.readCount }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="container mt-3">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<c:if test="${articlePage.startPage > 5 }">
+					<li class="page-item disabled"><a class="page-link"
+						href="${ctxPath }/article/list.do?pageNo=${articlPage.startPage-5 }"
+						tabindex="-1" aria-disabled="true">이전</a></li>
+				</c:if>
+				<c:forEach var="pNo" begin="${articlePage.startPage }"
+					end="${articlePage.endPage }">
+					<li class="page-item"><a class="page-link" href="${ctxPath }/article/list.do?pageNo=${pNo }">${pNo }</a></li>
+				</c:forEach>
+				<c:if test="${articlePage.endPage < articlePae.totalPages }">
+					<li class="page-item"><a class="page-link"
+						href="${ctxPath }/article/list.do?pageNo=${articlePage.startPage + 5 }">다음</a></li>
+				</c:if>
+			</ul>
+		</nav>
+
+
+	</div>
 </body>
 </html>
 
