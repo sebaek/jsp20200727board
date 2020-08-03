@@ -26,15 +26,11 @@
 
 	<div class="container mt-3">
 		<div class="jumbotron">
-			<h1 class="display-4">Hello, world!</h1>
-			<p class="lead">This is a simple hero unit, a simple
-				jumbotron-style component for calling extra attention to featured
-				content or information.</p>
+			<h1 class="display-4">중앙 게시판</h1>
+			<p class="lead">회원과 게시물을 등록 수정 삭제할 수 있는 프로젝트</p>
 			<hr class="my-4">
-			<p>It uses utility classes for typography and spacing to space
-				content out within the larger container.</p>
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
+			<p>회원 가입부터 시작해보세요.</p>
+			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원 가입</a>
 		</div>
 	</div>
 
