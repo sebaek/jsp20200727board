@@ -3,8 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<style>
+#mymenu .active {
+	color: blue;
+}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+</style>
+<nav id="mynav" class="navbar navbar-expand-lg navbar-light bg-light mb-3">
 	<a class="navbar-brand" href="${ctxPath }">중앙 게시판</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
