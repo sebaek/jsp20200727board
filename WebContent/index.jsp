@@ -18,10 +18,11 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="${ctxPath }/res/css/mystyle.css" />
 <title>Insert title here</title>
 </head>
 <body>
+<div class="hello">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor veniam architecto commodi nisi nobis ex officiis eius tenetur ipsam saepe neque nesciunt quasi id iusto repellat ipsa eligendi dolorem rem.</div>
 	<u:navbar home="active" />
 
 	<div class="container mt-3">
