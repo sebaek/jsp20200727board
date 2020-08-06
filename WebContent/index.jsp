@@ -22,7 +22,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="hello">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor veniam architecto commodi nisi nobis ex officiis eius tenetur ipsam saepe neque nesciunt quasi id iusto repellat ipsa eligendi dolorem rem.</div>
+
+${list[0] }
+<br />
+${list[1] }
+
 	<u:navbar home="active" />
 
 	<div class="container mt-3">
