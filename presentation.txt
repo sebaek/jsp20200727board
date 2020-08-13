@@ -1,0 +1,27 @@
+1. 어떤 어플리케이션을 만들었는지?
+2. 어떤 기술을 사용했는지?
+
+   -- back-end
+   1. java 8
+   2. servlet / jsp 
+      1. jstl, tag files, el
+      2. front controller, mvc
+      3. tomcat 9.0
+
+   -- database
+   3. mysql 8.0
+      1. jdbc
+      2. Apache Commons DBCP
+
+   -- front-end
+   4. html, css, js
+      1. jquery, bootstrap, font-awesome
+
+   -- ide, editor
+   5. eclipse, vscode
+
+   -- version control
+   6. git, github
+
+3. 각 화면에서의 실행 흐름
+   1. 화면부터 db까지
